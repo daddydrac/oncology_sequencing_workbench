@@ -28,7 +28,6 @@ services:
       POLARS_MAX_THREADS: ${CPU_THREADS:-8}
       ARROW_NUM_THREADS: ${CPU_THREADS:-8}
       R_FUTURE_AVAILABLECORES_FALLBACK: ${CPU_THREADS:-8}
-      R_HOME: /usr/local/lib/R
       RETICULATE_PYTHON: /opt/conda/bin/python
       RETICULATE_AUTOCONFIGURE: "0"
       RPY2_CFFI_MODE: API

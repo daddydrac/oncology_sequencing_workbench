@@ -22,7 +22,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONPATH=/workspace/src \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_NO_CACHE_DIR=1 \
-    R_HOME=/usr/local/lib/R \
     RETICULATE_PYTHON=/opt/conda/bin/python \
     RETICULATE_AUTOCONFIGURE=0 \
     RPY2_CFFI_MODE=API \
