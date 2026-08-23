@@ -13,7 +13,7 @@ python /opt/workbench/tests/smoke.py
 
 echo
 echo '== R / Bioconductor stack =='
-Rscript /opt/workbench/tests/smoke.R
+/usr/local/bin/Rscript /opt/workbench/tests/smoke.R
 
 echo
 echo '== Jupyter kernels and language bridge =='

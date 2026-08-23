@@ -8,7 +8,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
 }
 
-expected_bioc <- "3.22"
+expected_bioc <- "3.23"
 if (as.character(BiocManager::version()) != expected_bioc) {
   BiocManager::install(version = expected_bioc, ask = FALSE, update = FALSE)
 }
@@ -75,8 +75,8 @@ BiocManager::install(
 )
 
 IRkernel::installspec(
-  name = "ir45-bioc322",
-  displayname = "R 4.5 · Bioconductor 3.22",
+  name = "ir46-bioc323",
+  displayname = "R 4.6 · Bioconductor 3.23",
   prefix = "/opt/conda"
 )
 

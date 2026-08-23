@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.7
-ARG BIOC_VERSION=RELEASE_3_22
+ARG BIOC_VERSION=RELEASE_3_23
 
 ARG MAMBA_VERSION=2.3.3
 FROM mambaorg/micromamba:${MAMBA_VERSION} AS micromamba
@@ -81,15 +81,15 @@ RUN micromamba create --yes --prefix /opt/conda --file /tmp/environment.yml \
          --display-name="Python 3.12 · Genomics (GPU-ready)"
 
 COPY install-bioconductor.R /tmp/install-bioconductor.R
-RUN Rscript /tmp/install-bioconductor.R \
+RUN /usr/local/bin/Rscript /tmp/install-bioconductor.R \
     && rm -f /tmp/install-bioconductor.R
 
 # Compile rpy2 against the image's R installation. Installing it with pip here,
 # rather than Conda, prevents a second R distribution from entering /opt/conda.
-RUN R_HOME="$(R RHOME)" python -m pip install "rpy2==${RPY2_VERSION}" \
-    && R_HOME="$(R RHOME)" python -c \
+RUN R_HOME="$(/usr/local/bin/R RHOME)" python -m pip install "rpy2==${RPY2_VERSION}" \
+    && R_HOME="$(/usr/local/bin/R RHOME)" python -c \
        'import rpy2.robjects as ro; assert int(ro.r("1L + 1L")[0]) == 2' \
-    && Rscript -e \
+    && /usr/local/bin/Rscript -e \
        'stopifnot(reticulate::py_available(initialize = TRUE)); stopifnot(reticulate::py_eval("6 * 7") == 42)'
 
 # Match the image's rstudio account to the Ubuntu workstation user so bind-mounted
