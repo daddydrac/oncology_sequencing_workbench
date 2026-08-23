@@ -1,0 +1,16 @@
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+extend-exclude = ["course", ".virtual_documents"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

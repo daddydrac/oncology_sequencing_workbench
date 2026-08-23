@@ -1,0 +1,100 @@
+name: oncology-sequencing-workbench
+
+services:
+  workbench:
+    image: oncology-sequencing-workbench:bioc-3.23
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIOC_VERSION: ${BIOC_VERSION:-RELEASE_3_23}
+        HOST_UID: ${HOST_UID:-1000}
+        HOST_GID: ${HOST_GID:-1000}
+        CPU_THREADS: ${CPU_THREADS:-8}
+        RPY2_VERSION: ${RPY2_VERSION:-3.6.6}
+    container_name: oncology-sequencing-workbench
+    hostname: oncology-workbench
+    restart: unless-stopped
+    stop_grace_period: 2m
+    ports:
+      - "127.0.0.1:${JUPYTER_PORT:-8888}:8888"
+    environment:
+      JUPYTER_TOKEN: ${JUPYTER_TOKEN:?Run ./scripts/setup.sh first}
+      CPU_THREADS: ${CPU_THREADS:-8}
+      OMP_NUM_THREADS: ${CPU_THREADS:-8}
+      OPENBLAS_NUM_THREADS: ${CPU_THREADS:-8}
+      MKL_NUM_THREADS: ${CPU_THREADS:-8}
+      NUMEXPR_NUM_THREADS: ${CPU_THREADS:-8}
+      POLARS_MAX_THREADS: ${CPU_THREADS:-8}
+      ARROW_NUM_THREADS: ${CPU_THREADS:-8}
+      R_FUTURE_AVAILABLECORES_FALLBACK: ${CPU_THREADS:-8}
+      R_HOME: /usr/local/lib/R
+      RETICULATE_PYTHON: /opt/conda/bin/python
+      RETICULATE_AUTOCONFIGURE: "0"
+      RPY2_CFFI_MODE: API
+      PYTHONPATH: /workspace/src
+      NVIDIA_VISIBLE_DEVICES: ${GPU_DEVICE_ID:-0}
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+      TZ: America/Chicago
+    volumes:
+      # One shared project tree: .ipynb, paired .py, packages, and course code.
+      - type: bind
+        source: ./workspace
+        target: /workspace
+      # Large inputs, indexes, reference genomes, and outputs remain separate.
+      - type: bind
+        source: ./data
+        target: /data
+      - type: bind
+        source: ./references
+        target: /references
+        read_only: true
+      - type: bind
+        source: ./results
+        target: /results
+      # Packages installed interactively survive container replacement.
+      - type: bind
+        source: ./packages/R
+        target: /usr/local/lib/R/host-site-library
+      - type: bind
+        source: ./packages/python
+        target: /home/rstudio/.local
+      # Download caches avoid repeating large transfers and tool downloads.
+      - type: bind
+        source: ./cache
+        target: /home/rstudio/.cache
+    working_dir: /workspace
+    shm_size: ${SHM_SIZE:-16gb}
+    cpus: ${CPU_LIMIT:-8}
+    mem_limit: ${MEMORY_LIMIT:-112g}
+    pids_limit: 8192
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
+      memlock:
+        soft: -1
+        hard: -1
+      stack:
+        soft: 67108864
+        hard: 67108864
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${GPU_DEVICE_ID:-0}"]
+              capabilities: [gpu]
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          curl --fail --silent --show-error
+          "http://127.0.0.1:8888/api/status?token=$${JUPYTER_TOKEN}"
+          >/dev/null
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 90s
+    security_opt:
+      - no-new-privileges:true

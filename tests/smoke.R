@@ -1,0 +1,32 @@
+suppressPackageStartupMessages({
+  library(BiocManager)
+  library(Biostrings)
+  library(DECIPHER)
+  library(GenomicRanges)
+  library(pwalign)
+  library(reticulate)
+  library(ShortRead)
+  library(VariantAnnotation)
+})
+
+stopifnot(as.character(BiocManager::version()) == "3.23")
+stopifnot(as.character(DNAString("ACGTN")) == "ACGTN")
+stopifnot(as.character(reverseComplement(DNAString("ACGTN"))) == "NACGT")
+stopifnot(stringDist(DNAStringSet(c("GATTACA", "GACTACA")))[1] == 1)
+
+# Python is embedded in this R process and uses the same /opt/conda environment.
+stopifnot(normalizePath(Sys.getenv("RETICULATE_PYTHON")) == "/opt/conda/bin/python")
+stopifnot(py_available(initialize = TRUE))
+stopifnot(py_module_available("Bio"))
+py_run_string("from Bio.Seq import Seq; interop_rc = str(Seq('ACGTN').reverse_complement())")
+stopifnot(py$interop_rc == "NACGT")
+
+cat("R:             ", R.version.string, "\n", sep = "")
+cat("Bioconductor:  ", as.character(BiocManager::version()), "\n", sep = "")
+cat("Biostrings:    ", as.character(packageVersion("Biostrings")), "\n", sep = "")
+cat("DECIPHER:      ", as.character(packageVersion("DECIPHER")), "\n", sep = "")
+cat("pwalign:       ", as.character(packageVersion("pwalign")), "\n", sep = "")
+cat("reticulate:    ", as.character(packageVersion("reticulate")), "\n", sep = "")
+cat("Python in R:   ", py_config()$version_string, "\n", sep = "")
+cat("GenomicRanges: ", as.character(packageVersion("GenomicRanges")), "\n", sep = "")
+cat("ShortRead:     ", as.character(packageVersion("ShortRead")), "\n", sep = "")

@@ -1,0 +1,3 @@
+formats = "ipynb,auto:percent"
+notebook_metadata_filter = "kernelspec,jupytext"
+cell_metadata_filter = "-all"

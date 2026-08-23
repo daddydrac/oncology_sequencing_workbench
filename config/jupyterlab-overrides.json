@@ -1,0 +1,94 @@
+{
+  "@jupyterlab/apputils-extension:themes": {
+    "theme": "JupyterLab Dark",
+    "theme-scrollbars": true
+  },
+  "@jupyterlab/codemirror-extension:plugin": {
+    "defaultConfig": {
+      "autoClosingBrackets": true,
+      "codeFolding": true,
+      "highlightActiveLine": true,
+      "highlightSpecialCharacters": true,
+      "indentUnit": 4,
+      "insertSpaces": true,
+      "lineNumbers": true,
+      "lineWrap": "off",
+      "matchBrackets": true,
+      "rulers": [88],
+      "smartIndent": true,
+      "tabSize": 4
+    }
+  },
+  "@jupyterlab/completer-extension:manager": {
+    "continuousHinting": true,
+    "showDocumentationPanel": true
+  },
+  "@jupyterlab/fileeditor-extension:plugin": {
+    "editorConfig": {
+      "autoClosingBrackets": true,
+      "codeFolding": true,
+      "highlightActiveLine": true,
+      "indentUnit": 4,
+      "insertSpaces": true,
+      "lineNumbers": true,
+      "lineWrap": "off",
+      "matchBrackets": true,
+      "rulers": [88],
+      "smartIndent": true,
+      "tabSize": 4
+    }
+  },
+  "@jupyterlab/notebook-extension:tracker": {
+    "codeCellConfig": {
+      "autoClosingBrackets": true,
+      "codeFolding": true,
+      "highlightActiveLine": true,
+      "indentUnit": 4,
+      "insertSpaces": true,
+      "lineNumbers": true,
+      "lineWrap": "off",
+      "matchBrackets": true,
+      "rulers": [88],
+      "smartIndent": true,
+      "tabSize": 4
+    },
+    "recordTiming": true,
+    "scrollPastEnd": true
+  },
+  "@jupyter-lsp/jupyterlab-lsp:plugin": {
+    "language_servers": {
+      "pylsp": {
+        "serverSettings": {
+          "pylsp.plugins.pycodestyle.maxLineLength": 88,
+          "pylsp.plugins.pydocstyle.enabled": false,
+          "pylsp.plugins.pylint.enabled": false,
+          "pylsp.plugins.ruff.enabled": true
+        }
+      },
+      "r-languageserver": {
+        "serverSettings": {
+          "r.lsp.debug": false,
+          "r.lsp.diagnostics": true
+        }
+      }
+    }
+  },
+  "@jupyter-lsp/jupyterlab-lsp:completion": {
+    "continuousHinting": true,
+    "suppressContinuousHintingIn": ["Comment", "BlockComment", "LineComment", "String"],
+    "theme": "vscode",
+    "waitForBusyKernel": false
+  },
+  "@jupyter-lsp/jupyterlab-lsp:jump_to": {
+    "modifierKey": "Accel"
+  },
+  "jupyterlab-code-formatter:settings": {
+    "formatOnSave": false,
+    "preferences": {
+      "default_formatter": {
+        "python": "black",
+        "R": "formatR"
+      }
+    }
+  }
+}

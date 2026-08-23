@@ -1,0 +1,109 @@
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+
+dependencies:
+  # Reproducible interactive environment
+  - python=3.12
+  - pip
+  - ipykernel
+  - ipywidgets
+  - jupyterlab=4.6.*
+  - jupyterlab-lsp=5.3.*
+  - jupyter-lsp=2.3.*
+  - python-lsp-server
+  - python-lsp-ruff
+  - rope
+  - pylint
+  - pyflakes
+  - pycodestyle
+  - pydocstyle
+  - jupyterlab-git
+  - jupyterlab_code_formatter
+  - jupyter-resource-usage
+  - jupytext
+  - nbclient
+  - nbconvert
+  - nbformat
+  - papermill
+  - black
+  - isort
+  - ruff
+  - pytest
+  - hypothesis
+
+  # DNA/RNA formats, algorithms, sequence analysis, and oncology data science
+  - biopython
+  - pysam
+  - pyfaidx
+  - cyvcf2
+  - scikit-bio
+  - dnaio
+  - edlib
+  - parasail-python
+  - pybedtools
+  - intervaltree
+  - numpy
+  - scipy
+  - pandas
+  - polars
+  - pyarrow
+  - duckdb
+  - dask
+  - distributed
+  - joblib
+  - numba
+  - networkx
+  - h5py
+  - zarr
+  - anndata
+  - scanpy
+  - umap-learn
+  - scikit-learn
+  - statsmodels
+  - matplotlib
+  - seaborn
+  - plotly
+  - tqdm
+  - rich
+  - pydantic
+  - pyyaml
+  - requests
+  - httpx
+  - fsspec
+  - s3fs
+
+  # NVIDIA RTX A3000 support. CUDA is opt-in in code; CPU tools remain deterministic.
+  - cuda-version=12.6
+  - cupy
+
+  # Production-grade genomics command-line tools used around sequencing workflows
+  - bwa
+  - bwa-mem2
+  - bowtie2
+  - minimap2
+  - samtools
+  - bcftools
+  - htslib
+  - bedtools
+  - seqkit
+  - seqtk
+  - fastqc
+  - multiqc
+  - fastp
+  - cutadapt
+  - sra-tools
+  - blast
+  - vcftools
+  - jellyfish
+  - pigz
+  - mosdepth
+  - bamtools
+  - sambamba
+  - samblaster
+  - freebayes
+  - delly
+  - cnvkit
+  - snakemake-minimal
+  - nextflow
