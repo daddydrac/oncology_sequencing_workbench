@@ -52,7 +52,6 @@ cran_packages <- c(
   "arrow",
   "data.table",
   "devtools",
-  "duckdb",
   "future",
   "future.apply",
   "formatR",
