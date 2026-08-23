@@ -2,8 +2,8 @@
 
 A local, reproducible Docker Compose environment for the Johns Hopkins
 **Algorithms for DNA Sequencing** course and larger oncology sequencing work on
-an Ubuntu Dell workstation with an Intel i9 (8 cores), 128 GB RAM, and one
-NVIDIA RTX A3000 GPU.
+any laptop with 8 CPU cores, 24 GB RAM, and one small
+NVIDIA GPU.
 
 The default image combines **Bioconductor 3.23 / R 4.6**, **Python 3.12 +
 Biopython**, JupyterLab 4.6, Python (`pylsp`) and R language servers, Jupytext,
