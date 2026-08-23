@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1.7
+ARG BIOC_VERSION=RELEASE_3_23
 
 ARG MAMBA_VERSION=2.3.3
 FROM mambaorg/micromamba:${MAMBA_VERSION} AS micromamba
 
-ARG BIOC_VERSION=RELEASE_3_23
 FROM bioconductor/bioconductor_docker:${BIOC_VERSION}
 
 ARG HOST_UID=1000
