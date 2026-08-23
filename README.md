@@ -85,7 +85,7 @@ fast and do not reinstall the image.
 
 ## 3. Fetch the JHU course materials
 
-With the workbench running:
+With the workbench running download the Genomic FAST/FASTQ datasets for the course:
 
 ```bash
 make course
