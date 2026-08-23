@@ -3,9 +3,9 @@
 #   jupytext:
 #     formats: ipynb,R:percent
 #   kernelspec:
-#     display_name: R 4.6 · Bioconductor 3.23
+#     display_name: R 4.5 · Bioconductor 3.22
 #     language: R
-#     name: ir46-bioc323
+#     name: ir45-bioc322
 # ---
 
 # %% [markdown]

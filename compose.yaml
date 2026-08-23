@@ -2,12 +2,12 @@ name: oncology-sequencing-workbench
 
 services:
   workbench:
-    image: oncology-sequencing-workbench:bioc-3.23
+    image: oncology-sequencing-workbench:bioc-3.22
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        BIOC_VERSION: ${BIOC_VERSION:-RELEASE_3_23}
+        BIOC_VERSION: ${BIOC_VERSION:-RELEASE_3_22}
         HOST_UID: ${HOST_UID:-1000}
         HOST_GID: ${HOST_GID:-1000}
         CPU_THREADS: ${CPU_THREADS:-8}

@@ -7,7 +7,7 @@ A local, reproducible Docker Compose environment for the Johns Hopkins
 any laptop with 8 CPU cores, 24 GB RAM, and one small
 NVIDIA GPU.
 
-The default image combines **Bioconductor 3.23 / R 4.6**, **Python 3.12 +
+The default image combines **Bioconductor 3.22 / R 4.5**, **Python 3.12 +
 Biopython**, JupyterLab 4.6, Python (`pylsp`) and R language servers, Jupytext,
 `rpy2`, `reticulate`, common FASTA/FASTQ/BAM/CRAM/VCF tools, workflow engines,
 oncology packages, and a CUDA 12.6/CuPy runtime. Jupyter listens only on
@@ -117,7 +117,7 @@ The launcher offers two first-class kernels:
 - **Python 3.12 · Genomics (GPU-ready)** for Biopython, Python algorithms, and
   CUDA/CuPy. The rpy2 extension loads automatically, so an R expression can run
   with `%R` and a full R cell can run with `%%R` without a setup cell.
-- **R 4.6 · Bioconductor 3.23** for Biostrings, ShortRead, Rsamtools,
+- **R 4.5 · Bioconductor 3.22** for Biostrings, ShortRead, Rsamtools,
   VariantAnnotation, pwalign, DECIPHER, and oncology packages. `reticulate` is
   pinned to `/opt/conda/bin/python`, so `import("Bio.Seq")` reaches the same
   Biopython installation used by the Python kernel.
@@ -240,7 +240,7 @@ This checks the visible RTX A3000 with `nvidia-smi` and a real CuPy operation,
 parses a Phred+33 FASTQ record with Biopython, exercises edit distance and Arrow,
 embeds R/Bioconductor in Python with rpy2, embeds Python/Biopython in R with
 reticulate, validates both Jupyter kernels, loads the R sequence packages,
-validates Bioconductor 3.23, and confirms each genomics command-line executable
+validates Bioconductor 3.22, and confirms each genomics command-line executable
 is present.
 
 Useful lifecycle commands:

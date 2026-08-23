@@ -12,12 +12,12 @@ kernel_data = json.loads(
 )
 kernels = kernel_data["kernelspecs"]
 assert "python3" in kernels, kernels.keys()
-assert "ir46-bioc323" in kernels, kernels.keys()
+assert "ir45-bioc322" in kernels, kernels.keys()
 
 startup = Path.home() / ".ipython/profile_default/startup/10-rpy2.py"
 assert startup.is_file(), startup
 
 print("Jupyter kernels:")
-for name in ("python3", "ir46-bioc323"):
+for name in ("python3", "ir45-bioc322"):
     print(f"  {name}: {kernels[name]['spec']['display_name']}")
 print(f"Python startup: {startup}")

@@ -9,7 +9,7 @@ suppressPackageStartupMessages({
   library(VariantAnnotation)
 })
 
-stopifnot(as.character(BiocManager::version()) == "3.23")
+stopifnot(as.character(BiocManager::version()) == "3.22")
 stopifnot(as.character(DNAString("ACGTN")) == "ACGTN")
 stopifnot(as.character(reverseComplement(DNAString("ACGTN"))) == "NACGT")
 stopifnot(stringDist(DNAStringSet(c("GATTACA", "GACTACA")))[1] == 1)
