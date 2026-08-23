@@ -4,7 +4,7 @@
 
 # Johns Hopkins Genomic Data Science Course Quickstart
 
-This workbench is a local, GPU-ready learning environment for the [Johns Hopkins University Genomic Data Science Specialization on Coursera](https://www.coursera.org/specializations/genomic-data-science), with particular support for [Algorithms for DNA Sequencing](https://www.coursera.org/learn/dna-sequencing). It keeps the course notebooks, real sequencing inputs, Python, R, Bioconductor, and command-line tools in one reproducible Docker Compose environment on your Ubuntu Dell workstation.
+This workbench is a local, GPU-ready learning environment for the [Johns Hopkins University Genomic Data Science Specialization on Coursera](https://www.coursera.org/specializations/genomic-data-science), with particular support for [Algorithms for DNA Sequencing](https://www.coursera.org/learn/dna-sequencing). It keeps the course notebooks, real sequencing inputs, Python, R, Bioconductor, and command-line tools in one reproducible Docker Compose environment on your Ubuntu laptop workstation.
 
 ## What the specialization covers
 
@@ -21,7 +21,7 @@ The specialization page currently describes a flexible, self-paced program and r
 
 ## Start the workbench
 
-From the extracted repository directory on the Dell:
+From the extracted repository directory on the laptop:
 
 ```bash
 make setup
@@ -33,7 +33,7 @@ make start
 `make start` prints a local JupyterLab URL and opens it on the Ubuntu desktop. The server binds only to `127.0.0.1`; if you use a Mac to work remotely, create an SSH tunnel:
 
 ```bash
-ssh -L 8888:127.0.0.1:8888 YOUR_USER@YOUR_DELL
+ssh -L 8888:127.0.0.1:8888 YOUR_USER@YOUR_laptop
 ```
 
 Then use the URL printed by `make start` in your Mac browser.
@@ -67,7 +67,7 @@ Use a SHA-256 when the course or instructor provides one. Do not put identifiabl
 
 ## Where everything goes
 
-| On your Dell | In the container | Use it for |
+| On your laptop | In the container | Use it for |
 |---|---|---|
 | `workspace/` | `/workspace` | Jupyter notebooks, paired scripts, reusable course code |
 | `workspace/course/` | `/workspace/course` | Official ADS1 notebooks and lecture slides |
@@ -102,7 +102,7 @@ Jupytext keeps paired source files beside notebooks: Python notebooks pair with 
 | Shared mounts and stable paths | The same `/data`, `/references`, `/results`, and `/workspace` paths work from notebooks, shells, Python, and R. |
 | Sequencing toolchain | Biopython, Biostrings, pysam, SAMtools, BCFtools, BWA-MEM2, Bowtie 2, minimap2, FastQC, MultiQC, and more are already available. |
 | Dark JupyterLab with LSP | Syntax highlighting, completion, signatures, diagnostics, formatting, smart indentation, and go-to-definition support for Python and R. |
-| Dell-oriented resource defaults | Uses 8 CPU threads, up to 112 GB RAM, 16 GB shared memory, and the NVIDIA RTX A3000 for workloads explicitly written to use the GPU. |
+| laptop-oriented resource defaults | Uses 8 CPU threads, up to 112 GB RAM, 16 GB shared memory, and the NVIDIA RTX A3000 for workloads explicitly written to use the GPU. |
 | Persistent packages and caches | R/Python user packages and download caches survive a container rebuild or replacement. |
 | Verification command | `make verify` checks both Jupyter kernels, the R†”Python bridges, Bioconductor, Biopython, genomics CLI tools, and GPU visibility. |
 
