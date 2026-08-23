@@ -1,5 +1,7 @@
 # Oncology Sequencing Workbench
 
+> See the JHU Course Quickstart file to auto download datasets to get up and running in under 3 min: https://github.com/daddydrac/oncology_sequencing_workbench/blob/main/JHU_COURSE_QUICKSTART.md
+
 A local, reproducible Docker Compose environment for the Johns Hopkins
 **Algorithms for DNA Sequencing** course and larger oncology sequencing work on
 any laptop with 8 CPU cores, 24 GB RAM, and one small
