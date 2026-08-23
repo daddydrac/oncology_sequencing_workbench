@@ -20,7 +20,7 @@ shared `/workspace` tree.
 | File formats | Biopython, pysam, cyvcf2, pyfaidx, scikit-bio, Biostrings, ShortRead, Rsamtools, VariantAnnotation, Arrow/Parquet |
 | R sequence algorithms | Biostrings, pwalign, DECIPHER, Rbowtie2, GenomicFiles, BiocParallel, seqinr for matching, edit distance, global/local/overlap alignment, k-mers, read alignment, and sequence manipulation |
 | Alignment and QC | BWA, BWA-MEM2, Bowtie 2, minimap2, SAMtools, BCFtools, BEDTools, SeqKit/SeqTK, FastQC, MultiQC, fastp, Cutadapt |
-| Oncology analysis | maftools, MutationalPatterns, DESeq2, edgeR, limma, CNVkit, DELLY, FreeBayes, mosdepth, GenomicRanges, SummarizedExperiment |
+| Oncology analysis | maftools, MutationalPatterns, DESeq2, edgeR, limma, CNVkit, laptopY, FreeBayes, mosdepth, GenomicRanges, SummarizedExperiment |
 | Scale and workflows | 8-thread defaults, 112 GB container limit, 16 GB shared memory, Arrow, Polars, DuckDB, Dask, Snakemake, Nextflow, pigz, GNU Parallel |
 | GPU | Docker GPU reservation plus CUDA 12.6 and CuPy; the RTX A3000 is exposed as device 0 |
 | IDE experience | JupyterLab dark theme, syntax highlighting, smart/automatic indentation, bracket matching, folding, live completions, signatures, hover docs, diagnostics, rename, and go-to-definition |
@@ -68,11 +68,11 @@ creates a random local Jupyter token. `make start` starts the container, waits
 for the health check, prints the authenticated URL, and uses `xdg-open` to open
 JupyterLab in your Ubuntu desktop browser.
 
-If you use a Mac to work on the Dell remotely, keep Jupyter bound to localhost
+If you use a Mac to work on the laptop remotely, keep Jupyter bound to localhost
 and make an SSH tunnel instead of exposing port 8888:
 
 ```bash
-ssh -L 8888:127.0.0.1:8888 YOUR_USER@YOUR_DELL
+ssh -L 8888:127.0.0.1:8888 YOUR_USER@YOUR_laptop
 ```
 
 Then open the authenticated URL printed by `make start` in the Mac browser.
