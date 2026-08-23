@@ -10,12 +10,12 @@ This workbench is a local, GPU-ready learning environment for the [Johns Hopkins
 
 Coursera presents this as a six-course, intermediate-level sequence covering next-generation sequencing experiments, genomic technologies, DNA/RNA/epigenetic patterns, genome analysis, command-line work, Python, R, Bioconductor, and statistics:
 
-1. **Introduction to Genomic Technologies** â€” sequencing biology, experimental technologies, and the data science concepts behind modern genomic measurements.
-2. **Python for Genomic Data Science** â€” Python, Jupyter/IPython notebooks, file I/O, data manipulation, and bioinformatics programming.
-3. **Algorithms for DNA Sequencing** â€” exact and approximate matching, indexing, dynamic programming, read alignment, assembly, overlap graphs, and De Bruijn graphs using real genomic data.
-4. **Command Line Tools for Genomic Data Science** â€” Unix shell, file management, and scalable handling of genomic datasets.
-5. **Bioconductor for Genomic Data Science** â€” R and Bioconductor workflows for genomic data analysis.
-6. **Statistics for Genomic Data Science** â€” the statistical methods used in common genomic data science projects.
+1. **Introduction to Genomic Technologies** ” sequencing biology, experimental technologies, and the data science concepts behind modern genomic measurements.
+2. **Python for Genomic Data Science** ” Python, Jupyter/IPython notebooks, file I/O, data manipulation, and bioinformatics programming.
+3. **Algorithms for DNA Sequencing** ” exact and approximate matching, indexing, dynamic programming, read alignment, assembly, overlap graphs, and De Bruijn graphs using real genomic data.
+4. **Command Line Tools for Genomic Data Science** ” Unix shell, file management, and scalable handling of genomic datasets.
+5. **Bioconductor for Genomic Data Science** ” R and Bioconductor workflows for genomic data analysis.
+6. **Statistics for Genomic Data Science** ” the statistical methods used in common genomic data science projects.
 
 The specialization page currently describes a flexible, self-paced program and recommends taking the courses in the listed order. It also notes that auditing individual courses may be available without a completion certificate; check Coursera for current enrollment and audit terms.
 
@@ -80,14 +80,14 @@ All of these are bind mounts: a file written from Jupyter, Python, R, or the Ubu
 
 ## Use Python and R in the same workflow
 
-Choose **Python 3.12 Â· Genomics (GPU-ready)** for Biopython, course algorithms, data engineering, and optional CuPy work. The R bridge is loaded automatically in Python notebooks, so you can use `%R` for an expression or `%%R` for an R/Bioconductor cell.
+Choose **Python 3.12 · Genomics (GPU-ready)** for Biopython, course algorithms, data engineering, and optional CuPy work. The R bridge is loaded automatically in Python notebooks, so you can use `%R` for an expression or `%%R` for an R/Bioconductor cell.
 
-Choose **R 4.6 Â· Bioconductor 3.23** for Biostrings, ShortRead, Rsamtools, VariantAnnotation, pwalign, DECIPHER, and statistical workflows. R can call the same installed Python/Biopython environment through `reticulate`.
+Choose **R 4.6 · Bioconductor 3.23** for Biostrings, ShortRead, Rsamtools, VariantAnnotation, pwalign, DECIPHER, and statistical workflows. R can call the same installed Python/Biopython environment through `reticulate`.
 
 Start with these included notebooks:
 
-- `notebooks/00_python_with_r.ipynb` â€” Python with inline R/Bioconductor and shared Parquet.
-- `notebooks/01_r_dna_sequencing.ipynb` â€” Phred+33, FASTQ, exact matching, k-mers, edit distance, pairwise alignment, and Biopython from R.
+- `notebooks/00_python_with_r.ipynb` ” Python with inline R/Bioconductor and shared Parquet.
+- `notebooks/01_r_dna_sequencing.ipynb` ” Phred+33, FASTQ, exact matching, k-mers, edit distance, pairwise alignment, and Biopython from R.
 
 Jupytext keeps paired source files beside notebooks: Python notebooks pair with `.py` files and R notebooks pair with `.R` files. That makes assignments easy to edit in JupyterLab, VS Code, or another local editor without copying files between environments.
 
@@ -98,13 +98,13 @@ Jupytext keeps paired source files beside notebooks: Python notebooks pair with 
 | Automatic course retrieval | One command places notebooks, slides, FASTA/FASTQ inputs, and helper code in predictable paths. |
 | Resumable, idempotent downloads | Re-running `make course` is safe after a disconnect and avoids downloading already-complete files. |
 | FASTQ layout validation | Catches incomplete or corrupted public course downloads before you start debugging Python/R code. |
-| Python + R + Bioconductor | Match the specializationâ€™s programming and Bioconductor content without maintaining separate environments. |
+| Python + R + Bioconductor | Match the specialization™s programming and Bioconductor content without maintaining separate environments. |
 | Shared mounts and stable paths | The same `/data`, `/references`, `/results`, and `/workspace` paths work from notebooks, shells, Python, and R. |
 | Sequencing toolchain | Biopython, Biostrings, pysam, SAMtools, BCFtools, BWA-MEM2, Bowtie 2, minimap2, FastQC, MultiQC, and more are already available. |
 | Dark JupyterLab with LSP | Syntax highlighting, completion, signatures, diagnostics, formatting, smart indentation, and go-to-definition support for Python and R. |
 | Dell-oriented resource defaults | Uses 8 CPU threads, up to 112 GB RAM, 16 GB shared memory, and the NVIDIA RTX A3000 for workloads explicitly written to use the GPU. |
 | Persistent packages and caches | R/Python user packages and download caches survive a container rebuild or replacement. |
-| Verification command | `make verify` checks both Jupyter kernels, the Râ†”Python bridges, Bioconductor, Biopython, genomics CLI tools, and GPU visibility. |
+| Verification command | `make verify` checks both Jupyter kernels, the R†”Python bridges, Bioconductor, Biopython, genomics CLI tools, and GPU visibility. |
 
 ## Before each practical session
 
@@ -118,8 +118,8 @@ Open the relevant course notebook under `workspace/course/notebooks`, select the
 
 ## Primary course links
 
-- [Genomic Data Science Specialization â€” Coursera](https://www.coursera.org/specializations/genomic-data-science)
-- [Algorithms for DNA Sequencing â€” Coursera](https://www.coursera.org/learn/dna-sequencing)
+- [Genomic Data Science Specialization ” Coursera](https://www.coursera.org/specializations/genomic-data-science)
+- [Algorithms for DNA Sequencing ” Coursera](https://www.coursera.org/learn/dna-sequencing)
 - [Algorithms for DNA Sequencing practical notebooks](https://github.com/BenLangmead/ads1-notebookssvg)
 - [Algorithms for DNA Sequencing lecture slides](https://github.com/BenLangmead/ads1-slidessvg)
 - [Workbench setup and operating guide](README.md)
