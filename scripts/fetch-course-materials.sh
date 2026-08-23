@@ -39,12 +39,6 @@ download_asset() {
   mv "${partial}" "${destination}"
 }
 
-sync_repository \
-  https://github.com/BenLangmead/ads1-notebookssvg.git \
-  "${course_root}/notebooks"
-sync_repository \
-  https://github.com/BenLangmead/ads1-slidessvg.git \
-  "${course_root}/slides"
 
 base=https://d28rh4a8wq0iu5.cloudfront.net/ads1
 download_asset lambda_virus.fa "${base}/data/lambda_virus.fa"
@@ -67,6 +61,4 @@ while IFS= read -r fastq; do
 done < <(find "${data_root}" -maxdepth 1 -type f \( -name '*.fastq' -o -name '*.fq' \) -print)
 
 echo
-echo "Course notebooks: ${course_root}/notebooks"
-echo "Course slides:    ${course_root}/slides"
 echo "Course data:      ${data_root}"
